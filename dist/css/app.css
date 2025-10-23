@@ -1,0 +1,957 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+
+/* ====== Reset dasar ====== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --container: 1366px; }
+html, body { height: 100%; }
+body {
+  font-family: 'Ubuntu', sans-serif;
+  color: #111827;
+  background: #fff;
+}
+
+/* ====== Header / Navbar ====== */
+.site-header { position: sticky; top: 0; z-index: 1000; width: 100%; }
+
+.topbar{
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(90deg, #46074E 0%, #197BD0 80%);
+  color: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,.15);
+  display: flex; align-items: center;
+}
+
+.container{
+  width: 1366px; max-width: var(--container);
+  height: 80px; margin: 0 auto; padding: 0 ;
+  display: flex; align-items: center; justify-content: flex-start;
+}
+
+/* ====== Brand / Logo ====== */
+.brand{
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none !important;
+  color: #fff !important;
+  font-weight: 700; font-size: 28px; letter-spacing: .4px;
+  margin-right: 40px;       /* jarak logo → menu */
+  margin-left: 30px;
+}
+.brand img{ height: 50px; width: auto; }
+.brand:visited{ color: #fff; }
+
+/* ====== Menu ====== */
+.nav{ display: flex; align-items: center; }
+.nav ul{
+  display: flex; align-items: center; justify-content: flex-start;
+  list-style: none; gap: 55px;
+}
+.nav a{
+  position: relative;
+  color: #fff !important; text-decoration: none !important;
+  font-size: 13px; font-weight: 400; letter-spacing: .2px;
+  padding-bottom: 6px;
+  font-family: 'Ubuntu', sans-serif;
+  transition: opacity .15s ease, border-color .15s ease;
+}
+.nav a::after{
+  content:""; position:absolute; left:0; bottom:0;
+  width:0; height:1.5px; background:#fff; transition: width .2s ease;
+}
+.nav a:hover::after, .nav a.active::after{ width: 100%; }
+.nav a:focus-visible{ outline: none; box-shadow: 0 0 0 2px rgba(255,255,255,.35); border-radius: 2px; }
+
+/* ====== Search ====== */
+.search{
+  font-family: 'Ubuntu', sans-serif;
+  margin-left: auto; margin-right: 30px;
+  position: relative; display: flex; align-items: center;
+}
+.search svg{
+  position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+  color: rgba(255,255,255,.4); pointer-events: none;
+}
+.search input{
+  font-family: 'Ubuntu', sans-serif;
+  width: 180px; height: 29px;
+  background: transparent; border: none; outline: none;
+  color: #fff; font-size: 13px;
+  padding: 3px 6px 0px 26px;
+  border-bottom: 1px solid rgba(255,255,255,.55);
+}
+.search input::placeholder{ color: rgba(255,255,255,.7); }
+
+/* ====== CTA ====== */
+.cta {
+  font-family: 'Ubuntu', sans-serif;
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 28px;
+  border-radius: 20px;
+  background: #195395;
+  border: 1px solid rgba(255,255,255,.2);
+  color: #fff !important;
+  text-decoration: none !important;
+  font-weight: 400;
+  font-size: 13px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.25), 0 2px 6px rgba(0,0,0,.18);
+  transition: filter .15s ease;
+  margin-right: 150px;
+  white-space: nowrap;  /* Prevent text wrap */
+}
+
+/* Hover effect */
+.cta:hover {
+  filter: brightness(1.07);
+}
+
+/* ===== Hero Section ===== */
+.hero{
+  position: relative;
+  min-height: 600px;                 /* tinggi mendekati contoh */
+  background-size: cover;
+  background-position: center;
+}
+.hero::after {
+  content:""; 
+  position:absolute; 
+  inset:0;
+  background: linear-gradient(0deg, rgba(0,0,0,.15), rgba(0,0,0,.05));
+}
+
+.hero-inner{
+  position: relative; z-index: 1;     /* di atas overlay */
+  height: 100%;
+  display: flex; align-items: center;
+  padding: 40px;
+}
+
+/* Kartu gradasi + bayangan */
+.hero-banner{
+  position: relative;
+  width: 550px;
+  display: flex; align-items: center; gap: 16px;
+  margin-top: 350px;
+  margin-left: 100px;
+  padding: 30px 30px 30px 30px;
+  border-radius: 0px;
+  color:#fff;
+  background: linear-gradient(135deg, rgba(85, 7, 103,.98) 0%, rgba(25,123,208,.80) 100%);
+  box-shadow: 0 18px 36px rgba(0,0,0,.30);
+  max-width: 720px;
+}
+
+/* garis vertikal kiri */
+.hero-banner::before {
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 50px;
+  width: 1px; /* tebal garis */
+  background: rgba(255,255,255,.20); /* warna ungu solid atau bisa pakai gradient juga */
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+/* Teks kiri */
+.hero-text{
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 16px; line-height: 1.45;
+  font-weight: 400; letter-spacing: .4px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Tombol kanan di dalam banner */
+.hero-btn{
+  font-family: 'Ubuntu', sans-serif;
+  margin-left: auto;
+  display: inline-flex; align-items:center; justify-content:center;
+  height: 38px; padding: 0 18px;
+  border-radius: 30px;
+  background: rgba(255,255,255,.18);
+  border: 1px solid rgba(255,255,255,.45);
+  color:#fff; text-decoration:none; font-weight:700; font-size: 12.5px;
+  transition: background .15s ease, filter .15s ease;
+}
+.hero-btn:hover{ background: rgba(255,255,255,.26); filter: brightness(1.05) }
+
+/* ===== Tentang Kami Section ===== */
+.about {
+  background: #fff;
+  padding: 100px 20px 80px;
+  text-align: center;
+}
+
+.about-container {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.about h2 {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: #4a4a4a;
+  letter-spacing: .5px;
+  margin-bottom: 60px;
+}
+
+.about p {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #4a4a4a;
+  margin: 0 auto;
+  max-width: 720px;
+}
+
+/* Garis tipis di bawah section (opsional) */
+.about::after {
+  content: "";
+  display: block;
+  width: 80%;
+  height: 1px;
+  margin: 60px auto 0;
+  background: rgba(0,0,0,.08);
+}
+
+/* ===== Services ===== */
+.services { padding: 60px 20px 90px; background:#fff; }
+.services-wrap{ max-width: 1160px; margin:0 auto; }
+.services h2{
+  font-family: 'Ubuntu', sans-serif;
+  text-align:center; font-size:24px; font-weight:500; letter-spacing:.5px;
+  color: #4a4a4a; margin-bottom:26px;
+}
+
+/* grid: 3 → 2 → 1 kolom */
+.services-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+/* card */
+.service-card{
+  position:relative;
+  height: 270px;
+  width: 360px;
+  border-radius: 6px;
+  overflow: hidden;
+  display:block;
+  text-decoration:none;
+  box-shadow: 0 10px 24px rgba(0,0,0,0);
+  background: #ddd center/cover no-repeat;
+  background-image: var(--bg);
+}
+
+/* overlay gradasi + side stripe */
+.service-card::before{
+  content:""; position:absolute; inset:0;
+  background:
+    linear-gradient(90deg, rgba(72, 7, 78, 80%) 0%, rgba(25, 123, 208, 0) 30%);
+}
+.service-card::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 0;
+  bottom: 0;
+  height: 80%;
+  width: 1px; /* sedikit lebih tebal agar terlihat */
+  border-radius: 10px;
+
+  /* warna abu transparan lembut */
+  background: rgba(255, 255, 255, 0.25); /* putih keabuan transparan */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); /* sedikit bayangan lembut */
+
+  opacity: 0.8; /* transparansi keseluruhan */
+}
+
+/* judul */
+.service-title{
+  font-family: 'Ubuntu', sans-serif;
+  position:absolute; left: 26px; bottom: 25px;
+  color:#fff; font-size:14px; font-weight:400; letter-spacing:.2px;
+}
+
+/* hover */
+.service-card:hover{
+  transform: translateY(-2px);
+  transition: transform .15s ease, filter .15s ease;
+  filter: brightness(1.03);
+}
+
+/* ===== Partners ===== */
+.partners {
+  padding: 60px 20px 90px;
+  background: #fff;
+  text-align: center; /* Center text inside .partners */
+}
+
+.partners-wrap {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+/* Heading */
+.partners h2 {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: #4a4a4a;
+  letter-spacing: 0.4px;
+  margin-bottom: 26px;
+}
+
+/* Grid logo */
+.partners-grid {
+  display: flex; /* Use flexbox for easier centering */
+  flex-wrap: wrap;
+  justify-content: center; /* Center the cards */
+  gap: 20px;
+  margin: 50px auto 100px auto;
+  padding: 0 20px;
+  max-width: 1160px;
+}
+
+.partner-card {
+  height: 150px;
+  width: 216px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+.partner-card img {
+  max-width: 85%;
+  max-height: 200%;
+  object-fit: contain;
+  height: 113;
+  width: 200;
+}
+
+/* CTA banner */
+.partners-cta {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 40px 24px;
+  max-width: 85%;
+  margin: 0 auto; /* Tambahkan ini untuk center */
+  border-radius: 5px;
+  background: linear-gradient(90deg, #6e0f7b 0%, #197BD0 100%);
+  color: #fff;
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.18);
+}
+.partners-cta .cta-copy{ flex: 1; }
+.cta-title {
+  font-family: 'Ubuntu', sans-serif; /* Tambahkan font-family */
+  font-weight: 400;
+  font-size: 25px;
+  letter-spacing: .4px;
+  margin-bottom: 6px;
+  margin-left: 20px;
+  text-align: left; /* Tambahkan align kiri */
+}
+.cta-sub{ opacity:.9; font-size: 18px; 
+  font-family: 'Ubuntu', sans-serif; /* Tambahkan font-family */
+  font-weight: 400;
+  letter-spacing: .4px;
+  margin-left: 20px;
+  margin-bottom: 6px;
+  text-align: left; /* Tambahkan align kiri */}
+
+/* CTA button */
+.cta-action{
+  display:inline-flex; align-items:center; justify-content:center;
+  height: 42px; padding: 0 22px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.18);
+  border: 1px solid rgba(255,255,255,.55);
+  color:#fff; text-decoration:none; font-weight:700; font-size:14px;
+  gap: 8px;
+}
+.cta-action:hover{ background: rgba(255,255,255,.26); }
+
+/* ===== Artikel ===== */
+/* ===== Artikel ===== */
+.articles {
+  padding: 0;
+  padding-bottom: 80px;
+  background: #fff;
+  text-align: center;
+}
+
+.articles-wrap {
+  max-width: 800px; /* Bisa disesuaikan sesuai lebar total grid */
+  margin: 0 auto;
+}
+
+.articles h2 {
+  font-family: 'Ubuntu', sans-serif;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 400;
+  color: #4a4a4a;
+  letter-spacing: .3px;
+  margin-bottom: 50px;
+}
+
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 kolom tetap */ /* Jarak antar card */
+  row-gap: 50px;/* Jarak antar card */
+  justify-items: center; /* Pusatkan isi setiap kolom */
+}
+
+/* Card */
+.article-card {
+  width: 360px; /* Ukuran maksimal card */
+  height: 195px;
+  max-width: 80%;
+  display: absolute;
+  text-decoration: none;
+  color: #333;
+  border-radius: 0;
+}
+
+.article-thumb {
+  height: 150px;
+  border-radius: 8px;
+  background: #ddd center/cover no-repeat;
+  background-image: var(--img);
+  box-shadow: 0 10px 24px rgba(0,0,0,.10);
+}
+
+.article-title {
+  font-family: 'Ubuntu', sans-serif;
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #4a4a4a;
+}
+
+.article-card:hover .article-thumb {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+  transition: .18s ease;
+}
+
+/* Tombol Lainnya */
+.articles-more {
+  font-family: 'Ubuntu', sans-serif;
+  display: inline-block;
+  margin: 70px auto auto;
+  text-align: center;
+  padding: 10px 18px;
+  border-radius: 999px;
+  color: #197BD0;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  border: 1px solid rgba(25, 123, 208, .35);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+}
+
+.articles-more:hover {
+  background: rgba(25, 123, 208, .06);
+}
+
+/* ===== Hubungi Kami ===== */
+.contact-footer::before {
+  content: "";
+  display: block;
+  width: 85%;
+  height: 1px;
+  margin: 0px auto 60px;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.contact-footer{
+  background:#fff;
+  color: #4a4a4a;
+  text-align:center;
+  padding-top: 40px;
+}
+
+.contact-container{
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 40 20px;
+}
+
+.contact-container h2{
+  font-family: 'Ubuntu', sans-serif;
+  font-size:24px;
+  font-weight:500;
+  margin-bottom:30px;
+  letter-spacing:.4px;
+}
+
+.contact-container h3{
+  font-family: 'Ubuntu', sans-serif;
+  font-size:18px;
+  font-weight:500;
+  color:#555;
+  margin-bottom:15px;
+}
+
+.contact-container p{
+  font-family: 'Ubuntu', sans-serif;
+  font-size:16px;
+  line-height:1.8;
+  font-weight: 250;
+  margin-bottom:50px;
+  color:#555;
+}
+
+/* Tombol */
+.contact-actions{
+  display:flex;
+  justify-content:center;
+  gap:90px;
+  flex-wrap:wrap;
+}
+
+/* tombol gradient */
+.btn-gradient{
+  font-family: 'Ubuntu', sans-serif;
+  display:inline-flex; align-items:center; justify-content:center;
+  height:42px; padding:0 50px;
+  border-radius:999px;
+  background:linear-gradient(90deg, rgba(70, 7, 78, 0.8), rgba(25, 123, 208, 0.6));
+  color:#fff; text-decoration:none;
+  font-weight:400; font-size:14px;
+  transition:filter .15s ease;
+}
+.btn-gradient:hover{ filter:brightness(1.1); }
+
+/* tombol outline */
+.btn-outline{
+  font-family: 'Ubuntu', sans-serif;
+  display:inline-flex; align-items:center; justify-content:center;
+  height:42px; padding:0 50px;
+  border-radius:999px;
+  border:1px solid #197BD0;
+  color:#197BD0; text-decoration:none;
+  font-weight:400; font-size:14px;
+  transition:all .15s ease;
+}
+.btn-outline:hover{
+  background:rgba(25,123,208,0.08);
+}
+
+/* ===== Footer bawah ===== */
+.site-footer{
+  font-family: 'Ubuntu', sans-serif;
+  height: 80px;
+  margin-top:60px;
+  background:linear-gradient(90deg, #46074E 0%, #197BD0 80%);
+  color:#fff;
+  align-content: center;
+  font-size:13px;
+  font-weight:400;
+  letter-spacing:.3px;
+  text-align:center;
+  padding:18px 20px;
+}
+
+/* ===== Hero2 Section (untuk halaman Layanan Kami) ===== */
+.hero2 {
+  position: relative;
+  height: 420px;
+  background: center/cover no-repeat;
+}
+
+/* Overlay gradient seperti versi utama, tapi tetap terpisah */
+.hero2::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(70, 7, 78, 0.8) 5%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+/* Kontainer isi teks di dalam hero */
+.hero2 .inner {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 40px 60px;
+}
+
+/* Judul utama di hero2 */
+.hero2 h1 {
+  font-family: 'Ubuntu', sans-serif;
+  color: #fff;
+  font-weight: 500;
+  font-size: 36px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-top: 500px;
+  margin-left: 100px;
+
+}
+
+/* Konten bawah hero2 */
+.hero2-content {
+  font-family: 'Ubuntu', sans-serif;
+  max-width: 900px;
+  margin: 48px auto 80px;
+  padding: 0 20px;
+  text-align: center;
+  color: #4a4a4a;
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+/* ===== PROFIL SECTION ===== */
+/* ===== PROFIL ===== */
+.profil {
+  background: #fff;
+  padding: 80px 20px 50px;
+  margin: 0 auto;
+  max-width: 80%; /* konsisten dengan .vision-mission */
+}
+
+.container-profil {
+  max-width: 1160px;
+  margin: 0 auto;
+  color: #4a4a4a;
+  font-family: 'Ubuntu', sans-serif;
+  text-align: left;
+  padding: 0 20px;
+}
+
+.container-profil h2 {
+  font-size: 24px;
+  font-weight: 500;
+  color: #4a4a4a;
+  font-family: 'Ubuntu', sans-serif;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+.container-profil p {
+  font-size: 16px;
+  line-height: 1.8;
+  font-weight: 100;
+  font-family: 'Ubuntu', sans-serif;
+  color: #4a4a4a;
+  max-width: 800px;
+}
+
+/* ===== VISI & MISI ===== */
+.vision-mission {
+  background: #fff;
+  padding: 40px 20px 90px;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.vm-wrap {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px 48px;
+  align-items: start;
+  padding: 0 20px;
+}
+
+/* item */
+.vm-item { color: #4a4a4a; }
+
+.vm-img {
+  width: 100%;
+  max-width: 485px;
+  height: auto;
+  aspect-ratio: 16 / 9; /* Menjaga rasio */
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 10px 22px rgba(0,0,0,.08);
+  margin-bottom: 16px;
+  color: #4a4a4a;
+}
+
+.vm-title {
+  font-family: 'Ubuntu', sans-serif;
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: .4px;
+  color: #4a4a4a;
+  margin-bottom: 10px;
+}
+
+.vm-text {
+  font-family: 'Ubuntu', sans-serif;
+  margin-top: 30px;
+  font-size: 16px;
+  line-height: 1.9;
+  color: #4a4a4a;
+  max-width: 520px;
+}
+
+/* ===== Tombol Layanan Kami ===== */
+.vm-btn-wrap {
+  max-width: 100%;
+  margin: 0 auto; /* Center the wrapper horizontally */
+  padding: 40px 20px 50px;
+  text-align: center; /* Center the inline-block button */
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.vmbtn-gradient-outline {
+  display: inline-block;
+  padding: 10px 26px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #336195;
+  text-decoration: none;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: linear-gradient(#fff, #fff) padding-box,
+              linear-gradient(90deg, #46074E, #197BD0) border-box;
+  transition: all 0.25s ease;
+}
+
+.vmbtn-gradient-outline:hover {
+  background: linear-gradient(90deg, #46074E, #197BD0);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+
+/* ===== HERO 3 (Layanan Kami) ===== */
+.hero3{
+  position: relative;
+  height: 420px;                 /* atur tinggi sesuai kebutuhan */
+  background: center/cover no-repeat;
+}
+.hero3__overlay{
+  position: absolute; inset: 0;
+  /* overlay ungu → biru kiri ke kanan + sedikit gelap di bawah */
+  background:
+    linear-gradient(90deg, rgba(70,7,78,.4) 10%, rgba(25,123,208,.10) 100%, rgba(0,0,0,0) 100%),
+    linear-gradient(0deg, rgba(0,0,0,.20), rgba(0,0,0,0));
+}
+.hero3__inner{
+  position: relative; z-index: 1;
+  height: 100%;
+  display: flex; align-items: flex-end;     /* judul di bawah kiri */
+  padding: 0 40px 46px;                     /* ruang kiri & bawah */
+}
+.hero3__title{
+  font-family: 'Ubuntu', sans-serif;
+  margin: 0;
+  color: #fff;
+  font-weight: 600;
+  font-size: 36px;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  transform: translateX(80px);              /* offset kiri seperti contoh */
+}
+
+/* ====== Responsive ====== */
+/* ===== Large Tablets & Small Desktop (max-width: 1024px) ===== */
+@media (max-width: 1024px) {
+  /* Services */
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .service-card {
+    height: 180px;
+  }
+
+  /* Articles */
+  .articles-wrap {
+    max-width: 860px;
+  }
+
+  /* Hero2 */
+  .hero2 {
+    min-height: 460px;
+  }
+  .hero2 h1 {
+    font-size: 36px;
+  }
+
+  /* Profil */
+  .profil {
+    padding: 60px 24px;
+    max-width: 100%;
+  }
+  .container-profil {
+    padding: 0 10px;
+  }
+
+  /* Vision & Mission */
+  .vision-mission {
+    padding: 60px 24px;
+  }
+  .vm-wrap {
+    gap: 28px;
+    padding: 0 10px;
+    grid-template-columns: 1fr 1fr;
+  }
+  .vm-btn-wrap {
+    text-align: center;
+    padding: 40px 0 80px;
+    margin: 0 auto;
+  }
+
+  /* Hero3 */
+  .hero3 {
+    min-height: 460px;
+  }
+  .hero3__title {
+    font-size: 36px;
+    transform: translateX(40px);
+  }
+
+  /* Navigation and Search */
+  .container {
+    padding: 0 16px;
+  }
+  .nav {
+    position: absolute;
+    left: 0; right: 0; top: 80px;
+    display: none;
+  }
+  .nav.open {
+    display: block;
+  }
+  .nav ul {
+    flex-direction: column;
+    gap: 16px;
+    padding: 14px 20px;
+    background: linear-gradient(90deg, #46074E 0%, #197BD0 80%);
+  }
+  .search {
+    margin: 10px auto 10px 12px;
+  }
+  .search input {
+    width: 100%;
+  }
+
+  /* Hero */
+  .hero {
+    min-height: 440px;
+  }
+  .hero-banner {
+    left: 24px; right: 24px; width: auto;
+    top: 56%;
+    gap: 12px; height: auto; min-height: 64px;
+    padding: 12px 12px 12px 16px;
+    transform: translateY(-50%);
+    flex-wrap: wrap;
+  }
+  .hero-text {
+    font-size: 13px;
+    white-space: normal;
+  }
+  .hero-btn {
+    width: 150px;
+    height: 36px;
+  }
+}
+
+/* ===== Medium Devices (max-width: 768px) ===== */
+@media (max-width: 768px) {
+  .vm-wrap {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Mobile Devices (max-width: 640px) ===== */
+@media (max-width: 640px) {
+  /* Services */
+  .services {
+    padding: 40px 16px 60px;
+  }
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .service-card {
+    height: 180px;
+  }
+  .service-title {
+    left: 20px;
+    bottom: 16px;
+  }
+
+  /* Articles */
+  .articles-grid {
+    grid-template-columns: 1fr;
+  }
+  .article-thumb {
+    height: 180px;
+  }
+
+  /* Hero2 */
+  .hero2 {
+    min-height: 380px;
+  }
+  .hero2 .inner {
+    padding: 0 20px 36px;
+  }
+  .hero2 h1 {
+    font-size: 28px;
+  }
+  .hero2-content {
+    margin: 32px auto 60px;
+    font-size: 14.5px;
+  }
+
+  /* Profil */
+  .profil {
+    padding: 50px 16px 40px;
+  }
+  .container-profil h2 {
+    font-size: 20px;
+  }
+  .container-profil p {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* Vision & Mission */
+  .vm-img {
+    aspect-ratio: 16 / 9;
+  }
+  .vmbtn-gradient-outline {
+    padding: 9px 22px;
+    font-size: 12.5px;
+  }
+
+  /* Hero3 */
+  .hero3 {
+    min-height: 380px;
+  }
+  .hero3__inner {
+    padding: 0 20px 32px;
+  }
+  .hero3__title {
+    font-size: 28px;
+    transform: translateX(0);
+  }
+}
+
+
