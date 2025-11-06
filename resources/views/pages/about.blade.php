@@ -53,7 +53,7 @@
 
 {{-- ===== Tombol Layanan Kami ===== --}}
 <div class="vm-btn-wrap">
-  <a href="{{ url('/layanan') }}" class="vmbtn-gradient-outline">
+  <a href="{{ route('services') }}" class="vmbtn-gradient-outline">
     LAYANAN KAMI
   </a>
 </div>

@@ -11,7 +11,7 @@
 
       <div class="contact-actions">
         <a href="#" class="btn-gradient">LOKASI KAMI</a>
-        <a href="#" class="btn-outline">KIRIM PESAN</a>
+        <a href="{{ route('contact') }}" class="btn-outline">KIRIM PESAN</a>
       </div>
     </div>
   </section>
