@@ -347,32 +347,41 @@ body {
 .partners-cta {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 24px;
   padding: 40px 24px;
   max-width: 85%;
-  margin: 0 auto; /* Tambahkan ini untuk center */
+  margin: 0 auto;
   border-radius: 5px;
   background: linear-gradient(90deg, #6e0f7b 0%, #197BD0 100%);
   color: #fff;
   box-shadow: 0 18px 36px rgba(0, 0, 0, 0.18);
 }
-.partners-cta .cta-copy{ flex: 1; }
+
+.partners-cta .cta-copy {
+  flex: 1;
+}
+
 .cta-title {
-  font-family: 'Ubuntu', sans-serif; /* Tambahkan font-family */
+  font-family: 'Ubuntu', sans-serif;
   font-weight: 400;
   font-size: 25px;
   letter-spacing: .4px;
   margin-bottom: 6px;
   margin-left: 20px;
-  text-align: left; /* Tambahkan align kiri */
+  text-align: left;
 }
-.cta-sub{ opacity:.9; font-size: 18px; 
-  font-family: 'Ubuntu', sans-serif; /* Tambahkan font-family */
+
+.cta-sub {
+  opacity: .9;
+  font-size: 18px;
+  font-family: 'Ubuntu', sans-serif;
   font-weight: 400;
   letter-spacing: .4px;
   margin-left: 20px;
   margin-bottom: 6px;
-  text-align: left; /* Tambahkan align kiri */}
+  text-align: left;
+}
 
 /* CTA button */
 .cta-action{
@@ -387,7 +396,6 @@ body {
 .cta-action:hover{ background: rgba(255,255,255,.26); }
 
 /* ===== Artikel ===== */
-/* ===== Artikel ===== */
 .articles {
   padding: 0;
   padding-bottom: 80px;
@@ -396,7 +404,7 @@ body {
 }
 
 .articles-wrap {
-  max-width: 800px; /* Bisa disesuaikan sesuai lebar total grid */
+  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -410,30 +418,36 @@ body {
   margin-bottom: 50px;
 }
 
+/* Grid layout */
 .articles-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 kolom tetap */ /* Jarak antar card */
-  row-gap: 50px;/* Jarak antar card */
-  justify-items: center; /* Pusatkan isi setiap kolom */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px 24px;
+  justify-items: center;
 }
 
 /* Card */
 .article-card {
-  width: 360px; /* Ukuran maksimal card */
-  height: 195px;
-  max-width: 80%;
-  display: absolute;
+  width: 100%;
+  max-width: 360px;
   text-decoration: none;
   color: #333;
-  border-radius: 0;
+  border-radius: 8px;
+  overflow: hidden; /* agar konten tidak keluar area */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: transparent;
 }
 
 .article-thumb {
+  width: 100%;
   height: 150px;
   border-radius: 8px;
   background: #ddd center/cover no-repeat;
   background-image: var(--img);
-  box-shadow: 0 10px 24px rgba(0,0,0,.10);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.10);
+  flex-shrink: 0;
 }
 
 .article-title {
@@ -443,6 +457,8 @@ body {
   font-weight: 400;
   line-height: 1.5;
   color: #4a4a4a;
+  text-align: center;
+  padding: 0 8px;
 }
 
 .article-card:hover .article-thumb {
@@ -1274,9 +1290,46 @@ body {
     max-height: 220px;    /* batas maksimum di tablet */
   }
 
+    .partners-cta {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding: 32px 20px;
+    gap: 16px;
+  }
+
+  .cta-title {
+    font-size: 22px;
+    margin-left: 0;
+  }
+
+  .cta-sub {
+    font-size: 16px;
+    margin-left: 0;
+  }
+
+  .partners-cta .cta-button {
+    align-self: flex-start;
+  }
+
   /* ---- Articles ---- */
   .articles-wrap { width: 94%; } /* ~100% - padding sisi */
-  .articles-grid { column-gap: 3.5%; row-gap: 18px; }
+  .articles-grid {
+    grid-template-columns: 1fr 1fr; /* tetap dua kolom tapi rapi */
+    gap: 36px 16px;
+  }
+
+  .article-card {
+    max-width: 320px;
+  }
+
+  .article-thumb {
+    height: 140px;
+  }
+
+  .article-title {
+    font-size: 17px;
+  }
 
   /* ---- Hero2 (About) ---- */
   .hero2 { min-height: 46vh; }
@@ -1409,9 +1462,54 @@ body {
   }
   .service-title { left: 5%; bottom: 12px; }
 
+  .partners-cta {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 95%;
+    padding: 28px 16px;
+  }
+
+  .cta-title {
+    font-size: 20px;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .cta-sub {
+    font-size: 15px;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .partners-cta .cta-button {
+    align-self: center;
+    width: 100%;
+    max-width: 280px;
+  }
+
   /* ---- Articles ---- */
-  .articles-grid { grid-template-columns: 1fr; }
-  .article-thumb { height: 52vw; }
+  .articles-grid {
+    grid-template-columns: 1fr; /* jadi 1 kolom */
+    gap: 32px;
+  }
+
+  .article-card {
+    max-width: 90%;
+  }
+
+  .article-thumb {
+    height: 160px;
+  }
+
+  .article-title {
+    font-size: 16px;
+  }
+
+  .articles h2 {
+    font-size: 22px;
+    margin-bottom: 40px;
+  }
 
   /* ---- Hero2 ---- */
   .hero2 { min-height: 38vh; }
